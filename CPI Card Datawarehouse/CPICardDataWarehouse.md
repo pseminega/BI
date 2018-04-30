@@ -7,7 +7,7 @@ I have created a source system consisting of a primary data source, an ERP datab
 **Tools used in this project:**
 
 *  SQL Developer
-*  DBDesigner.net (For entity relationship diagrams)
+*  ER Assistant 2.1 (For entity relationship diagrams)
 *  Microstrategy 10
 *  Oracle Database 12.2
 *  Pentaho Data Integrator 8.1
@@ -52,6 +52,8 @@ Secondary sources: The lead file and financial summaries
 
 <a id="erdss"></a>
 ### Entity Relationship Diagram
+
+![ERPDatabase.png](attachment:ERPDatabase.png)
 
 <a id="tcss"></a>
 ### Table Row Counts
@@ -156,6 +158,8 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
+![JobFactSchema.png](attachment:JobFactSchema.png)
+
 #### Table Descriptions
 
 <table>
@@ -217,6 +221,8 @@ The lead file and Financial Summary csv files can be found here
 
 
 
+![ShipmentFactSchema.png](attachment:ShipmentFactSchema.png)
+
 #### Table Descriptions
 
 <table>
@@ -273,6 +279,8 @@ The lead file and Financial Summary csv files can be found here
 **Technical Description:**
 
 #### Entity Relationship Diagram
+
+![SubJobFactSchema.png](attachment:SubJobFactSchema.png)
 
 #### Table Descriptions
 
@@ -331,6 +339,8 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
+![LeadFactSchema.png](attachment:LeadFactSchema.png)
+
 #### Table Descriptions
 
 <table>
@@ -387,6 +397,8 @@ The lead file and Financial Summary csv files can be found here
 **Technical Description:**
 
 #### Entity Relationship Diagram
+
+![InvoiceFactSchema.png](attachment:InvoiceFactSchema.png)
 
 #### Table Descriptions
 
@@ -445,6 +457,8 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
+![FinancialCostSummarySchema.png](attachment:FinancialCostSummarySchema.png)
+
 #### Table Descriptions
 
 <table>
@@ -501,6 +515,8 @@ The lead file and Financial Summary csv files can be found here
 **Technical Description:**
 
 #### Entity Relationship Diagram
+
+![FinancialSalesSummarySchema.png](attachment:FinancialSalesSummarySchema.png)
 
 #### Table Descriptions
 
