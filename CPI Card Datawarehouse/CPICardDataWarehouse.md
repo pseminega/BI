@@ -7,7 +7,7 @@ I have created a source system consisting of a primary data source, an ERP datab
 **Tools used in this project:**
 
 *  SQL Developer
-*  ER Assistant 2.1 (For entity relationship diagrams)
+*  DBDesigner.net (For entity relationship diagrams)
 *  Microstrategy 10
 *  Oracle Database 12.2
 *  Pentaho Data Integrator 8.1
@@ -53,7 +53,7 @@ Secondary sources: The lead file and financial summaries
 <a id="erdss"></a>
 ### Entity Relationship Diagram
 
-![ERPDatabase.png](attachment:ERPDatabase.png)
+![ERPDatabase.png](ERD\ERPDatabase.png)
 
 <a id="tcss"></a>
 ### Table Row Counts
@@ -158,7 +158,7 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
-![JobFactSchema.png](attachment:JobFactSchema.png)
+![JobFactSchema.png](ERD\JobFactSchema.png)
 
 #### Table Descriptions
 
@@ -221,7 +221,7 @@ The lead file and Financial Summary csv files can be found here
 
 
 
-![ShipmentFactSchema.png](attachment:ShipmentFactSchema.png)
+![ShipmentFactSchema.png](ERD\ShipmentFactSchema.png)
 
 #### Table Descriptions
 
@@ -280,7 +280,7 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
-![SubJobFactSchema.png](attachment:SubJobFactSchema.png)
+![SubJobFactSchema.png](ERD\SubJobFactSchema.png)
 
 #### Table Descriptions
 
@@ -339,7 +339,7 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
-![LeadFactSchema.png](attachment:LeadFactSchema.png)
+![LeadFactSchema.png](ERD\LeadFactSchema.png)
 
 #### Table Descriptions
 
@@ -398,7 +398,7 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
-![InvoiceFactSchema.png](attachment:InvoiceFactSchema.png)
+![InvoiceFactSchema.png](ERD\InvoiceFactSchema.png)
 
 #### Table Descriptions
 
@@ -457,7 +457,7 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
-![FinancialCostSummarySchema.png](attachment:FinancialCostSummarySchema.png)
+![FinancialCostSummarySchema.png](ERD\FinancialCostSummarySchema.png)
 
 #### Table Descriptions
 
@@ -516,7 +516,7 @@ The lead file and Financial Summary csv files can be found here
 
 #### Entity Relationship Diagram
 
-![FinancialSalesSummarySchema.png](attachment:FinancialSalesSummarySchema.png)
+![FinancialSalesSummarySchema.png](ERD\FinancialSalesSummarySchema.png)
 
 #### Table Descriptions
 
@@ -601,52 +601,52 @@ The lead file and Financial Summary csv files can be found here
 
 ## Complete Dashboard 1
 
-![D1Complete.png](attachment:D1Complete.png)
+![D1Complete.png](Dashboards\D1Complete.png)
 
 ### Dashboard 1 Visualization 1
 
-![D1V1.png](attachment:D1V1.png)
+![D1V1.png](Dashboards\D1V1.png)
 
 ### Dashboard 1 Visualization 2
 
-![D1V2.png](attachment:D1V2.png)
+![D1V2.png](Dashboards\D1V2.png)
 
 ### Dashboard 1 Visualization 3
 
-![D1V3.png](attachment:D1V3.png)
+![D1V3.png](Dashboards\D1V3.png)
 
 ### Dashboard 1 Visualization 4
 
-![D1V4.png](attachment:D1V4.png)
+![D1V4.png](Dashboards\D1V4.png)
 
 ## Complete Dashboard 2
 
-![D2Complete.png](attachment:D2Complete.png)
+![D2Complete.png](Dashboards\D2Complete.png)
 
 ### Dashboard 2 Visualization 1
 
-![D2V1.png](attachment:D2V1.png)
+![D2V1.png](Dashboards\D2V1.png)
 
 ### Dashboard 2 Visualization 2
 
-![D2V2.png](attachment:D2V2.png)
+![D2V2.png](Dashboards\D2V2.png)
 
 ### Dashboard 2 Visualization 3
 
-![D2V3.png](attachment:D2V3.png)
+![D2V3.png](Dashboards\D2V3.png)
 
 ### Dashboard 2 Visualization 4
 
-![D2V4.png](attachment:D2V4.png)
+![D2V4.png](Dashboards\D2V4.png)
 
 ## Complete Dashboard 3
 
-![D3Complete.png](attachment:D3Complete.png)
+![D3Complete.png](Dashboards\D3Complete.png)
 
 ### Dashboard 3 Visualization 1
 
-![D3V1.png](attachment:D3V1.png)
+![D3V1.png](Dashboards\D3V1.png)
 
 ### Dashboard 3 Visualization 2
 
-![D3V2.png](attachment:D3V2.png)
+![D3V2.png](Dashboards\D3V2.png)
