@@ -1,0 +1,8 @@
+
+CREATE TABLE SALESCLASS
+
+(
+ Sales_Class_Id LONG PRIMARY KEY,
+ Sales_Class_Desc VARCHAR
+
+);

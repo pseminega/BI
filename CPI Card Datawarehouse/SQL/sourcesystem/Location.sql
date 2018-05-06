@@ -1,0 +1,8 @@
+
+CREATE TABLE LOCATION
+
+(
+ Location_Id LONG PRIMARY KEY,
+ Location_Name CHAR(50)
+
+);
