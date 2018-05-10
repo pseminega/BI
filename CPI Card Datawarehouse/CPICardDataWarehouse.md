@@ -246,8 +246,7 @@ Identifying dimensions, map dimensions to data sources and specify dimension hie
        
        <tr>
            <td>Sales Agent</td>
-           <td>Sales_Agent_Id, Sales_Agent_Name,
-Location</td>
+           <td>Sales_Agent_Id, Sales_Agent_Name, Location</td>
            <td>State, country</td>
            <td>SalesAgent table in ERP</td>
        </tr>
@@ -262,8 +261,7 @@ Location</td>
        <tr>
            <td>Time</td>
            <td>Various dates: Date_Invoiced, Date_Due, Contract_Date, Date_Promised, Date_Ship_By. Date_Prod_Begin, Date_Prod_End,Actual_Shiip_Date, Requested_Ship_Date, Begin_Date, End_Date, Created_Date</td>
-           <td>Year, quarter, month, day
-Year, week</td>
+           <td>Year, quarter, month, day, Year, week</td>
            <td>Date columns in Job, Lead, Shipment, Subjob, Invoice, FinancialCostSummary, and FinancialSalesSummary</td>
        </tr>
 </table>
@@ -277,44 +275,26 @@ Year, week</td>
        
        <tr>
            <td>Lead</td>
-           <td>Success, 
-Quote_Price, 
-Quote_Qty</td>
-           <td>Non-additive
-Non-additive
-Additive</td>
+           <td>Success, Quote_Price, Quote_Qty</td>
+           <td>Non-additive Non-additive Additive</td>
        </tr>
        
        <tr>
            <td>Job</td>
            <td>Quantity_Ordered, Quotation_Amount, Quotation_Ordered</td>
-           <td>Additive
-Additive
-Additive</td>
+           <td>Additive Additive Additive</td>
        </tr>
        
        <tr>
            <td>Subjob</td>
-           <td>Cost_Material, 
-Cost_Labor, 
-Cost_Overhead, Machine_Hours, Quantity_Produced</td>
-           <td>Additive
-Additive
-Additive
-Additive
-Additive</td>
+           <td>Cost_Material, Cost_Labor, Cost_Overhead, Machine_Hours, Quantity_Produced</td>
+           <td>Additive Additive Additive Additive Additive</td>
        </tr>
        
        <tr>
            <td>Shipment</td>
-           <td>Actual_Quantity, 
-Boxes, 
-Quantity_Per_Box, 
-
-Quantity_Per_Partial_Box</td>
-           <td>Additive
-Additive when multiplied by Quantity_Per_Box
-Additive</td>
+           <td>Actual_Quantity, Boxes, Quantity_Per_Box, Quantity_Per_Partial_Box</td>
+           <td>Additive Additive when multiplied by Quantity_Per_Box Additive</td>
        </tr>
        
        <tr>
@@ -325,8 +305,7 @@ Additive</td>
        
        <tr>
            <td>Financial_Sales_Summary</td>
-           <td>Actual_Units, 
-Actual_Amount, Forecast_Units, Forecast_Amount</td>
+           <td>Actual_Units, Actual_Amount, Forecast_Units, Forecast_Amount</td>
            <td>Additive for all</td>
        </tr>
        
@@ -347,9 +326,7 @@ Actual_Amount, Forecast_Units, Forecast_Amount</td>
        <tr>
            <td>Lead</td>
            <td>Customer, Sales_Agent, Sales_Class, Location, Time</td>
-           <td>Success, 
-Quote_Price, 
-Quote_Qty</td>
+           <td>Success, Quote_Price, Quote_Qty</td>
        </tr>
        
        <tr>
@@ -361,19 +338,13 @@ Quote_Qty</td>
        <tr>
            <td>Subjob</td>
            <td>Machine_Type, Customer, Sales_Class, Location, Time</td>
-           <td>Cost_Material, 
-Cost_Labor, 
-Cost_Overhead, Machine_Hours, Quantity_Produced</td>
+           <td>Cost_Material, Cost_Labor, Cost_Overhead, Machine_Hours, Quantity_Produced</td>
        </tr>
        
        <tr>
            <td>Shipment</td>
            <td>CustLocation, Location, Sales_Class, Time</td>
-           <td>Actual_Quantity, 
-Boxes, 
-Quantity_Per_Box, 
-
-Quantity_Per_Partial_Box</td>
+           <td>Actual_Quantity, Boxes, Quantity_Per_Box, Quantity_Per_Partial_Box</td>
        </tr>
        
        <tr>
@@ -385,8 +356,7 @@ Quantity_Per_Partial_Box</td>
        <tr>
            <td>Financial_Sales_Summary</td>
            <td>Sales_Class, Location, Time</td>
-           <td>Actual_Units, 
-Actual_Amount, Forecast_Units, Forecast_Amount</td>
+           <td>Actual_Units, Actual_Amount, Forecast_Units, Forecast_Amount</td>
        </tr>
        
        <tr>
@@ -408,88 +378,50 @@ Actual_Amount, Forecast_Units, Forecast_Amount</td>
           <td>Job</td>
           <td>Customer postal code, SalesClass, Week, Location, SalesAgent
 Customer, SalesClass, Day, Location, SalesAgent</td>
-          <td>46,800,000
-
-3,285,000,000</td>
-          <td>0.998
-
-0.999</td>
+          <td>46,800,000 3,285,000,000</td>
+          <td>0.998 0.999</td>
       </tr>
       
       <tr>
           <td>Subjob</td>
-          <td>Customer postal code, SalesClass, Week, Location, MachineType
-Customer, SalesClass, Day, Location, MachineType</td>
-          <td>9,360,000
-
-
-657,000,000</td>
-          <td>0.989
-
-
-0.992</td>
+          <td>Customer postal code, SalesClass, Week, Location, MachineType Customer, SalesClass, Day, Location, MachineType</td>
+          <td>9,360,000 657,000,000</td>
+          <td>0.989 0.992</td>
       </tr>
       
       <tr>
           <td>Shipment</td>
-          <td>Customer postal code, SalesClass, Week, Location
-Customer, SalesClass, Day, Location</td>
-          <td>1,560,000
-
-219,000,000</td>
-          <td>-0.603
-
-0.989</td>
+          <td>Customer postal code, SalesClass, Week, Location ,Customer, SalesClass, Day, Location</td>
+          <td>1,560,000 219,000,000</td>
+          <td>-0.603 0.989</td>
       </tr>
       
       <tr>
           <td>Invoice</td>
-          <td>Customer postal code, SalesClass, Week, Location, SalesAgent
-Customer, SalesClass, Day, Location, SalesAgent</td>
-          <td>46,800,000
-
-3,285,000,000</td>
-          <td>0.995
-
-0.999</td>
+          <td>Customer postal code, SalesClass, Week, Location, SalesAgent Customer, SalesClass, Day, Location, SalesAgent</td>
+          <td>46,800,000 3,285,000,000</td>
+          <td>0.995 0.999</td>
       </tr>
       
       <tr>
           <td>Lead</td>
-          <td>Customer postal code, Sales_Agent, Sales_Class, Location, Week
-Customer, Sales_Agent, Sales_Class, Location, Day</td>
-          <td>46,800,000
-
-3,285,000,000</td>
-          <td>0.995
-
-0.999</td>
+          <td>Customer postal code, Sales_Agent, Sales_Class, Location, Week Customer, Sales_Agent, Sales_Class, Location, Day</td>
+          <td>46,800,000 3,285,000,000</td>
+          <td>0.995 0.999</td>
       </tr>
       
       <tr>
           <td>Cost Summary</td>
-          <td>SalesClass, Week, Location, MachineType
-SalesClass, Day, Location, MachineType</td>
-          <td>31,200
-
-
-219,000</td>
-          <td>-0.154
-
-
-0.836</td>
+          <td>SalesClass, Week, Location, MachineType SalesClass, Day, Location, MachineType</td>
+          <td>31,200 219,000</td>
+          <td>-0.154 0.836</td>
       </tr>
       
       <tr>
           <td>Sales Summary</td>
-          <td>SalesClass, Week, Location
-SalesClass, Day, Location, MachineType</td>
-          <td>3,120
-
-21,900</td>
-          <td>-0.154
-
-0.836</td>
+          <td>SalesClass, Week, Location SalesClass, Day, Location, MachineType</td>
+          <td>3,120 21,900</td>
+          <td>-0.154 0.836</td>
       </tr> 
 </table>
 
