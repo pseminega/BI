@@ -209,61 +209,62 @@ For individual table creations and population run the files in order:
 Identifying dimensions, map dimensions to data sources and specify dimension hierarchies in each data cube. Identify data sources and attributes in each data source for each dimension.For hierarchical dimensions you should indicate the levels from broad to narrow. Specify measures and measure aggregation properties. Dimensions and measures are grouped. Dimensions and measures are put together in data cubes.
 
 <table>
-       <tr>
-           <th>Dimension</th>
-           <th>Attributes</th>
-           <th>Hierarchies</th>
-           <th>Data Sources</th>
-       </tr>
+<tr>
+<th>Dimension</th>
+<th>Attributes</th>
+<th>Hierarchies</th>
+<th>Data Sources</th>
+</tr>
         
-       <tr>
-           <td>Customer</td>
-           <td>Cust_Key,Cust_Name,Location,E_Mail_Address,Terms_Code</td>
-           <td>Country,State,City,Country,Zip</td>
-           <td>Customer table in ERP</td>
-       </tr>
+<tr>
+<td>Customer</td>
+<td>Cust_Key,Cust_Name,Location,E_Mail_Address,Terms_Code</td>
+<td>Country,State,City,Country,Zip</td>
+<td>Customer table in ERP</td>
+</tr>
        
-       <tr>
-           <td>Customer location</td>
-           <td>Cust_Loc_Key,Cust_Name Location E_Mai_Address Terms_Code</td>
-           <td>Country, State, City, Country,Zip Top level, second level domains</td>
-           <td>CustomerLoc table in ERP</td>
-       </tr>
+<tr>
+<td>Customer location</td>
+<td>Cust_Loc_Key,Cust_Name Location E_Mai_Address Terms_Code</td>
+<td>Country, State, City, Country,Zip Top level, second level domains</td>
+<td>CustomerLoc table in ERP</td>
+</tr>
        
-       <tr>
-           <td>Location</td>
-           <td>Location_Id, Location_Name</td>
-           <td></td>
-           <td>Location table in ERP</td>
-       </tr>
+<tr>
+<td>Location</td>
+<td>Location_Id, Location_Name</td>
+<td> </td>
+<td>Location table in ERP</td>
+</tr>
        
-       <tr>
-           <td>Machine type</td>
-           <td>Machine_Type_Id, Manufacturer, Model, Rate_Per_Hour, Number_Of_Machines</td>
-           <td></td>
-           <td>MachineType table in ERP</td>
-       </tr>
+<tr>
+<td>Machine type</td>
+<td>Machine_Type_Id, Manufacturer, Model, Rate_Per_Hour, Number_Of_Machines</td>
+<td> </td>
+<td>MachineType table in ERP</td>
+</tr>
        
-       <tr>
-           <td>Sales Agent</td>
-           <td>Sales_Agent_Id, Sales_Agent_Name, Location</td>
-           <td>State, country</td>
-           <td>SalesAgent table in ERP</td>
-       </tr>
+<tr>
+<td>Sales Agent</td>
+<td>Sales_Agent_Id, Sales_Agent_Name, Location</td>
+<td>State, country</td>
+<td>SalesAgent table in ERP</td>
+</tr>
        
-       <tr>
-           <td>Sales class</td>
-           <td>Sales_Class_Id, Sales_Class_Desc</td>
-           <td></td>
-           <td>SalesClass table in ERP</td>
-       </tr>
+<tr>
+<td>Sales class</td>
+<td>Sales_Class_Id, Sales_Class_Desc</td>
+<td> </td>
+<td>SalesClass table in ERP</td>
+</tr>
        
-       <tr>
-           <td>Time</td>
-           <td>Various dates: Date_Invoiced, Date_Due, Contract_Date, Date_Promised, Date_Ship_By. Date_Prod_Begin, Date_Prod_End,Actual_Shiip_Date, Requested_Ship_Date, Begin_Date, End_Date, Created_Date</td>
-           <td>Year, quarter, month, day, Year, week</td>
-           <td>Date columns in Job, Lead, Shipment, Subjob, Invoice, FinancialCostSummary, and FinancialSalesSummary</td>
-       </tr>
+<tr>
+<td>Time</td>
+<td>Various dates: Date_Invoiced, Date_Due, Contract_Date, Date_Promised, Date_Ship_By, Date_Prod_Begin, Date_Prod_End,Actual_Shiip_Date, Requested_Ship_Date, Begin_Date, End_Date, Created_Date</td>
+<td>Year, quarter, month, day, Year, week</td>
+<td>Date columns in Job, Lead, Shipment, Subjob, Invoice, FinancialCostSummary, and FinancialSalesSummary</td>
+</tr>
+
 </table>
 
 <table>
@@ -376,15 +377,14 @@ Identifying dimensions, map dimensions to data sources and specify dimension hie
       
       <tr>
           <td>Job</td>
-          <td>Customer postal code, SalesClass, Week, Location, SalesAgent
-Customer, SalesClass, Day, Location, SalesAgent</td>
+          <td>Customer postal code, SalesClass, Week, Location, SalesAgent Customer, SalesClass, Day, Location, SalesAgent</td>
           <td>46,800,000 3,285,000,000</td>
           <td>0.998 0.999</td>
       </tr>
       
       <tr>
           <td>Subjob</td>
-          <td>Customer postal code, SalesClass, Week, Location, MachineType Customer, SalesClass, Day, Location, MachineType</td>
+          <td>Customer postal code, SalesClass, Week, Location, MachineType Customer, SalesClass, Day, Location MachineType</td>
           <td>9,360,000 657,000,000</td>
           <td>0.989 0.992</td>
       </tr>
