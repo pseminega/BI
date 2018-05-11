@@ -1,3 +1,7 @@
+/*********************************
+        MACHINETYPE
+**********************************/
+
 CREATE TABLE MACHINETYPE
 (
  MACHINE_TYPE_ID NUMBER(10,0) PRIMARY KEY, 
