@@ -1,2 +1,3 @@
-CPI Card Datawarehouse/*.ipynb
+*.ipynb
+
 /.ipynb_checkpoints/
