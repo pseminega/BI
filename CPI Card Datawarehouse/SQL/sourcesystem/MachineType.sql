@@ -1,3 +1,14 @@
+-- drop existing table
+-- Only need to drop table if you have previously created it
+
+
+DROP TABLE MACHINETYPE;
+
+ALTER SESSION set nls_date_format = 'yyyy-mm-dd';
+
+-- Create table
+
+
 /*********************************
         MACHINETYPE
 **********************************/

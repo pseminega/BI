@@ -1,3 +1,13 @@
+-- drop existing table
+-- Only need to drop table if you have previously created it
+
+
+DROP TABLE CUSTOMER;
+
+ALTER SESSION set nls_date_format = 'yyyy-mm-dd';
+
+-- Create table
+
 /*********************************
         CUSTOMER
 **********************************/
@@ -7,7 +17,7 @@ CREATE TABLE CUSTOMER
 
   CUST_KEY NUMBER(10,0) PRIMARY KEY,
   CUST_NAME VARCHAR2(50) NOT NULL,
-  ACTIVE BOOLEAN NOT NULL,
+  ACTIVE CHAR(1) NOT NULL,
   ADDRESS_1 VARCHAR2(25),
   ADDRESS_2 VARCHAR2(25),
   ADDRESS_3 VARCHAR(25),

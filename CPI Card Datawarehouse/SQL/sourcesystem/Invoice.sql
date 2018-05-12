@@ -1,3 +1,14 @@
+
+-- drop existing table
+-- Only need to drop table if you have previously created it
+
+
+DROP TABLE INVOICE;
+
+ALTER SESSION set nls_date_format = 'yyyy-mm-dd';
+
+-- Create table
+
 /*********************************
         INVOICE
 **********************************/

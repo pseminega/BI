@@ -1,13 +1,25 @@
+-- drop existing table
+-- Only need to drop table if you have previously created it
+
+
+DROP TABLE CUSTLOCATION;
+
+ALTER SESSION set nls_date_format = 'yyyy-mm-dd';
+
+-- Create table
+
+
 /*********************************
         CUSTLOCATION
 **********************************/
+
 
 CREATE TABLE CUSTLOCATION
 
 (
  CUST_LOC_KEY NUMBER(10,0) PRIMARY KEY,
  CUST_NAME VARCHAR2(50) NOT NULL, 
- ACTIVE BOOLEAN,
+ ACTIVE CHAR(1),
  ADDRESS_1 VARCHAR2(25),
  ADDRESS_2 VARCHAR2(25),
  ADDRESS_3 VARCHAR2(25),

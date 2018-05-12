@@ -1,3 +1,13 @@
+-- drop existing table
+-- Only need to drop table if you have previously created it
+
+
+DROP TABLE JOB;
+
+ALTER SESSION set nls_date_format = 'yyyy-mm-dd';
+
+-- Create table
+
 /*********************************
              JOB
 **********************************/
@@ -10,9 +20,9 @@ CREATE TABLE JOB
  DATE_PROMISED DATE, 
  NUMBER_OF_SUBJOBS NUMBER(4,0) NOT NULL,
  PO_NUMBER VARCHAR2(10),
- RECORD_ACTIVE BOOLEAN,
+ RECORD_ACTIVE CHAR(1),
  DATE_SHIP_BY DATE,
- JOB_COMPLETE BOOLEAN,
+ JOB_COMPLETE CHAR(1),
  PRINT_FLOW_STATUS VARCHAR2(10),
  CONTACT_NAME VARCHAR2(50) NOT NULL,
  UNIT_PRICE NUMBER(8,4),
