@@ -23,7 +23,7 @@ BEGIN
  SELECT SEQ_DIM_CUSTOMER.NEXTVAL INTO NEXT_SEQ_VAL FROM DUAL;
  
    IF NEXT_SEQ_VAL <> MAX_KEY_CUSTOMER THEN SQLSTMT :='ALTER SEQUENCE SEQ_DIM_CUSTOMER INCREMENT BY'
-     ||((NEXT_SEQ_VAL-MAX_KEY_CUSTOMER)*-1)
+     ||((NEXT_SEQ_VAL - MAX_KEY_CUSTOMER)* -1)
 	 ||'MINVALUE 0';
 	 EXECUTE IMMEDIATE SQLSTMT;
 	 SELECT SEQ_DIM_CUSTOMER.NEXTVAL INTO NEXT_SEQ_VAL FROM DUAL;
@@ -41,7 +41,7 @@ BEGIN
  END IF;
  
  -- The procedure will pull all records that were inserted into (or updated in ) the CUSTOMER table since the date of the last successful refresh
- -- date from the ETL_JOB_STATUS. The data from the source system dumped into STAGE_CUSTOMER_DATA table in the staging area.
+ -- date from the ETL_JOB_STATUS. The data from the source is system dumped into STAGE_CUSTOMER_DATA table in the staging area.
  
  SELECT MAX(TRUNC(STATUS_TIMESTAMP)) INTO AS_OF_DATE FROM ETL_JOB_STATUS WHERE ETL_JOB_NAME = 'LOAD_CUSTOMER_DIMENSION' AND STATUS_NAME = 'SUCCESSFULLY COMPLETED';
  SQLSTMT :='CREATE TABLE STAGE_CUSTOMER_DATA'
@@ -161,7 +161,6 @@ SQLSTMT := 'UPDATE W_CUSTOMER_D'
 	   || 'COUNTRY,'
 	   || 'CREDIT_LIMIT,'
 	   || 'E_MAIL_ADDRESS,'
-	   || 'STATE,'
 	   || 'TERMS_CODE,'
 	   || 'ZIP'
 	   || 'FROM STAGE_CUSTOMER_DATA_LOAD_UPD')';
@@ -182,7 +181,7 @@ SQLSTMT := 'UPDATE W_CUSTOMER_D'
 	     SELECT SYS_CONTEXT('USERENV','CURRENT_SCHEMA') FROM DUAL);
 		 
 		 IF TBLCOUNT > 0 THEN
-		 EXECUTE IMMEDIATE 'DROP_TABLE STAGE_CUSTOMER_DATA_LOAD_NEW';
+		 EXECUTE IMMEDIATE 'DROP TABLE STAGE_CUSTOMER_DATA_LOAD_NEW';
 		 END IF;
 		 
 		 
@@ -209,9 +208,10 @@ SQLSTMT := 'UPDATE W_CUSTOMER_D'
  
  
  
- -- The new records are added into the W_CUSTOMER_D table
+ -- The new records are added to the W_CUSTOMER_D table.
  SQLSTMT :='INSERT INTO W_CUSTOMER_D'
- || '(CUST_KEY,'
+ || 'KEY_CUSTOMER,'
+ || 'CUST_KEY,'
  || 'CUST_NAME,'
  || 'CITY,'
  || 'COUNTRY,'
@@ -225,6 +225,8 @@ SQLSTMT := 'UPDATE W_CUSTOMER_D'
  
  EXECUTE IMMEDIATE SQLSTMT;
  COMMIT;
+ 
+ END;
  
  
 END;

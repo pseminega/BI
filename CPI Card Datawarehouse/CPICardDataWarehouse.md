@@ -3,18 +3,20 @@
 
 The data warehouse uses three data sources as depicted below. The ERP database is the major source used by manufacturing to manage jobs, subjobs, shipments and invoices. The lead file and financial summaries are secondary data sources, both in spreadsheet format. The lead file and financial summary are prepared from other data sources used by the marketing and accounting departments.
 
-![Capture.PNG](Figure/Capture.PNG)
 
+![Capture.PNG](Figure/Capture.PNG)
 
 
 **Tools used in this project:**
 
-*  SQL Developer 4.1
+*  Oracle SQL Developer 4.1
 *  ER Assistant 2.10
-*  Microstrategy Desktop 10
+*  Oracle SQL Developer Data Modeler
+*  Microstrategy Desktop 11
 *  Oracle Database 12.2
-*  Pentaho Data Integrator 8.1
+*  Pentaho Data Integrator 8.2
 *  Toad for Oracle 13.0 for data generation
+*  Microsoft Excel 2016 Professional
 
 
 
@@ -37,12 +39,47 @@ The data warehouse uses three data sources as depicted below. The ERP database i
 ## [**Star Schemas design:**](#starschema)
 
 1. [Job Star Schema](#jss)
+   - Entity Relationship Diagram
+   - Table Descriptions
+   - Scripts To Create Tables
+   - ETL
+   - Verify Against Source System
 2. [Shipment Star Schema](#sss)
+   - Entity Relationship Diagram
+   - Table Descriptions
+   - Scripts To Create Tables
+   - ETL
+   - Verify Against Source System
 3. [Subjob Star Schema](#sjss)
+   - Entity Relationship Diagram
+   - Table Descriptions
+   - Scripts To Create Tables
+   - ETL
+   - Verify Against Source System
 4. [Lead Star Schema](#lss)
+   - Entity Relationship Diagram
+   - Table Descriptions
+   - Scripts To Create Tables
+   - ETL
+   - Verify Against Source System
 5. [Invoice Schema](#iss)
+   - Entity Relationship Diagram
+   - Table Descriptions
+   - Scripts To Create Tables
+   - ETL
+   - Verify Against Source System
 6. [Financial Cost Summary Star Schema](#fcss)
+   - Entity Relationship Diagram
+   - Table Descriptions
+   - Scripts To Create Tables
+   - ETL
+   - Verify Against Source System
 7. [Financial Sales Summary Star Schema](#fsss)
+   - Entity Relationship Diagram
+   - Table Descriptions
+   - Scripts To Create Tables
+   - ETL
+   - Verify Against Source System
 
 ## [**ETL Jobs:**](#etljobs)
 
@@ -70,7 +107,7 @@ The ERP database supports complete processing for jobs involving planning, manuf
 
 <a href="ERD/ERPDatabase.erd" download>ERPDatabase.erd</a>
 
-![ERPDatabase.png](Figure/Capture.png)
+![ERPDatabase.png](ERD/ERPDatabase.png)
 
 <a id="tcss"></a>
 ### Table Row Counts
@@ -86,7 +123,7 @@ The ERP database supports complete processing for jobs involving planning, manuf
 </tr>
 <tr>
    <td>CustLocation</td>
-   <td>1000</td>
+   <td>10000</td>
 </tr>
 <tr>
    <td>Invoice</td>
@@ -438,15 +475,38 @@ Identifying dimensions, map dimensions to data sources and specify dimension hie
 <a id="starschema"></a>
 # <center>Star Schemas</center>
 
-The ETL is performed using 2 approaches, one uses pure oracle PL/SQL and the other uses data integration software. Seven star schema as created.
+The ETL is performed using Pentaho data integrator software. Seven star schema were created.
 The datawarehouse uses the following conformed dimensions:
-*  W_CUSTOMER_D
-*  W_LOCATION_D
-*  W_SALESCLASS_D
-*  W_SALESAGENT_D
-*  W_TIME_D
-*  W_CUSTLOCATION_D
-*  W_MACHINETYPE_D
+*  W_CUSTOMER_D (Type I SCD )
+*  W_LOCATION_D (Type II SCD )
+*  W_SALESCLASS_D (Type II SCD )
+*  W_SALESAGENT_D (Type I SCD )
+*  W_TIME_D 
+*  W_CUSTLOCATION_D (Type II SCD )
+*  W_MACHINETYPE_D (Type II SCD )
+
+## Loading the dimensions
+
+### Loading W_TIME_D
+![TimeDim.PNG](ETL/ProductionDW/TimeDim.PNG)
+
+### Loading W_CUSTOMER_D (Type I SCD )
+![CustomerDim.PNG](ETL/ProductionDW/CustomerDim.PNG)
+
+### Loading W_LOCATION_D (Type II SCD )
+![LocationDim.PNG](ETL/ProductionDW/LocationDim.PNG)
+
+### Loading W_SALESCLASS_D (Type II SCD )
+![SalesClassDim.PNG](ETL/ProductionDW/SalesClassDim.PNG)
+
+### Loading W_SALESAGENT_D (Type I SCD )
+![SalesAgentDim.PNG](ETL/ProductionDW/SalesAgentDim.PNG)
+
+### Loading W_CUSTLOCATION_D (Type II SCD )
+![CustLocationDim.PNG](ETL/ProductionDW/CustLocationDim.PNG)
+
+### Loading W_MACHINETYPE_D (Type II SCD )
+![MachineTypeDim.PNG](ETL/ProductionDW/MachineTypeDim.PNG)
 
 <a id="jss"></a>
 ## Job Star Schema
@@ -472,8 +532,6 @@ A job is a contract with two important dates, date promised in which the entire 
 
 #### Entity Relationship Diagram
 
-<a href="ERD/JobStarSchemaERD.erd" download>JobStarSchemaERD.erd</a>
-
 ![JobFactSchema.png](ERD/JobFactSchema.png)
 
 #### Table Descriptions
@@ -496,6 +554,11 @@ A job is a contract with two important dates, date promised in which the entire 
 #### Scripts To Create Tables
 
 <a href="SQL/datawarehouse/JobStarSchema.sql" download>JobStarSchema.sql</a>
+
+### Loading W_JOB_F
+![JobFact.PNG](ETL/ProductionDW/JobFact.PNG)
+
+#### Verify Against Source System
 
 <a id="sss"></a>
 ## Shipment Star Schema
@@ -549,6 +612,11 @@ A job is a contract with two important dates, date promised in which the entire 
 
 <a href="SQL/datawarehouse/ShipmentStarSchema.sql" download>ShipmentStarSchema.sql</a>
 
+### Loading W_JOB_SHIPMENT_F
+![ShipmentFact.PNG](ETL/ProductionDW/ShipmentFact.PNG)
+
+#### Verify Against Source System
+
 <a id="sjss"></a>
 ## Subjob Star Schema
 **Business Process Description:**
@@ -582,6 +650,11 @@ A job is a contract with two important dates, date promised in which the entire 
 #### Scripts To Create Tables
 
 <a href="SQL/datawarehouse/SubjobStarSchema.sql" download>SubjobStarSchema.sql</a>
+
+### Loading W_SUB_JOB_F
+![SubjobFact.PNG](ETL/ProductionDW/SubjobFact.PNG)
+
+#### Verify Against Source System
 
 <a id="lss"></a>
 ## Lead Star Schema
@@ -617,6 +690,11 @@ Lead success rate is tracked by customer, sales class, and sales agent
 
 <a href="SQL/datawarehouse/LeadStarSchema.sql" download>LeadStarSchema.sql</a>
 
+### Loading W_LEAD_F
+![LeadFact.PNG](ETL/ProductionDW/LeadFact.PNG)
+
+#### Verify Against Source System
+
 <a id="iss"></a>
 ## Invoice Star Schema
 **Business Process Description:**
@@ -650,6 +728,11 @@ Lead success rate is tracked by customer, sales class, and sales agent
 
 <a href="SQL/datawarehouse/InvoiceStarSchema.sql" download>InvoiceStarSchema.sql</a>
 
+### Loading W_INVOICELINE_F
+![InvoiceFact.PNG](ETL/ProductionDW/InvoiceFact.PNG)
+
+#### Verify Against Source System
+
 <a id="fcss"></a>
 ## Financial Cost Summary Schema
 **Business Process Description:**
@@ -682,6 +765,11 @@ Costs is tracked by location, sales class, and machine type.
 #### Scripts To Create Tables
 
 <a href="SQL/datawarehouse/FinancialCostStarSchema.sql" download>FinancialCostStarSchema.sql</a>
+
+### Loading W_FINANCIAL_SUMMARY_COST_F
+![FinancialCostFact.PNG](ETL/ProductionDW/FinancialCostFact.PNG)
+
+#### Verify Against Source System
 
 <a id="fsss"></a>
 ## Financial Sales Summary Schema
@@ -717,100 +805,27 @@ Sales are tracked by location, sales class, sales agent, and customer
 
 <a href="SQL/datawarehouse/FinancialSalesSummaryStarSchema.sql" download>FinancialSalesSummaryStarSchema.sql</a>
 
+### Loading W_FINANCIAL_SUMMARY_SALES_F
+![FinancialSalesFact.PNG](ETL/ProductionDW/FinancialSalesFact.PNG)
+
+#### Verify Against Source System
+
 <a id="#etljobs"></a>
 #  <center>ETL Jobs</center>
 
 ## The Test Datawarehouse ETL Job
 <a id="testetl"></a>
 
-- Adding constants for Error Messages and Success Column in T_Lead_F Table
-![ETL1.png](ETL/TestDW/ETL1.png)
-- Check for Null Values
-![ETL2.png](ETL/TestDW/ETL2.png)
-- These are added in T_ERROR_LOG
-![ETL3.1.png](ETL/TestDW/ETL3.1.png)
-- Date Parsing
-![ETL3.png](ETL/TestDW/ETL3.png)
-![ETL4.png](ETL/TestDW/ETL4.png)
-- Find Time_Id from Time Dimension For each of three dates
-![ETL5.png](ETL/TestDW/ETL5.png)
-- Calculate Date Diff
-![ETL6.png](ETL/TestDW/ETL6.png)
-- Invalid Dates are added to the Error Log
-![ETL7.png](ETL/TestDW/ETL7.png)
-- Foreign Key Check
-![ETL8.png](ETL/TestDW/ETL8.png)
-- Invalid Foreign Key Error Log
-![ETL9.png](ETL/TestDW/ETL9.png)
-- Adding satisfactory rows to Job Table
-Updated Job Table(8 rows are added)
-![ETL10.png](ETL/TestDW/ETL10.png)
-- Lead Table Validation and Updating Lead Table
-![ETL11.png](ETL/TestDW/ETL11.png)
-- Adding to Error Log
-![ETL12.png](ETL/TestDW/ETL12.png)
-- 6 rows are updated
-![ETL13.png](ETL/TestDW/ETL13.png)
-- Transformation Complete:
-![ETL14.png](ETL/TestDW/ETL14.png)
-![ETL15.png](ETL/TestDW/ETL15.png)
-![ETL16.png](ETL/TestDW/ETL16.png)
+## Jobs that create the dimensions and fact tables
+![DimensionsJob.PNG](ETL/TestDW/DimensionsJob.PNG)
+![JobFact.PNG](ETL/TestDW/JobFact.PNG)
 
 ## The Production Datawarehouse ETL Job
 <a id="productionetl"></a>
 
-- Adding constants for Error Messages and Success Column in T_Lead_F Table
-![ETL1.png](ETL/ProductionDW/ETL1.png)
-
-- Check for Null Values
-![ETL2.png](ETL/ProductionDW/ETL2.png)
-
-- Added in W_ERROR_LOG
-![ETL3.png](ETL/ProductionDW/ETL3.png)
-
-- Date Parsing
-![ETL4.png](ETL/ProductionDW/ETL4.png)
-![ETL5.png](ETL/ProductionDW/ETL5.png)
-
-- Find Time_Id from Time Dimension For each of three dates
-![ETL6.png](ETL/ProductionDW/ETL6.png)
-
-- Calculate Date Diff
-![ETL7.png](ETL/ProductionDW/ETL7.png)
-
-- Invalid Dates are added to the Error Log
-![ETL8.png](ETL/ProductionDW/ETL8.png)
-
-- Foreign Key Check
-![ETL9.png](ETL/ProductionDW/ETL9.png)
-
-- Invalid Foreign Key Error Log
-![ETL10.png](ETL/ProductionDW/ETL10.png)
-![ETL11.png](ETL/ProductionDW/ETL11.png)
-- Adding satisfactory rows to Job Table
-Updated Job Table
-![ETL12.png](ETL/ProductionDW/ETL12.png)
-
-- Lead Table Validation and Updating Lead Table
-![ETL13.png](ETL/ProductionDW/ETL13.png)
-
-- Adding to Error Log
-![ETL14.png](ETL/ProductionDW/ETL14.png)
-![ETL15.png](ETL/ProductionDW/ETL15.png)
-
-- Final View of W_LEAD_F
-![ETL16.png](ETL/ProductionDW/ETL16.png)
-
-- Final View of W_ERROR_LOG
-![ETL17.png](ETL/ProductionDW/ETL17.png)![ETL18.png](ETL/ProductionDW/ETL18.png)
-
-- Final View of W_JOB_F
-![ETL19.png](ETL/ProductionDW/ETL19.png)
-
-- Transformation Complete:
-![ETL20.png](ETL/ProductionDW/ETL20.png)
-![ETL21.png](ETL/ProductionDW/ETL21.png)
-![ETL22.png](ETL/ProductionDW/ETL22.png)
+## Jobs that create the dimensions and fact tables
+![DimensionsJob.PNG](ETL/ProductionDW/DimensionsJob.PNG)
+![JobFact.PNG](ETL/ProductionDW/JobFact.PNG)
 
 <a id="analysis"></a>
 # <center>Analysis</center>
