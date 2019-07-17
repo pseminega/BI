@@ -825,7 +825,7 @@ Sales are tracked by location, sales class, sales agent, and customer
 
 ## Jobs that create the dimensions and fact tables
 ![DimensionsJob.PNG](ETL/ProductionDW/DimensionsJob.PNG)
-![JobFact.PNG](ETL/ProductionDW/JobFact.PNG)
+![FactsJob.PNG](ETL/ProductionDW/FactsJob.PNG)
 
 <a id="analysis"></a>
 # <center>Analysis</center>
